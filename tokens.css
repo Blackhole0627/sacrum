@@ -1,0 +1,37 @@
+/* SACRUM design tokens — decided from the real logo/banner/product photos the client sent
+   (see copy-and-content.md). Changeable later; it's a one-file edit.
+   Every component reads these variables, so re-skinning the whole site means editing this file only. */
+:root {
+  /* color */
+  --color-bg: #0a0a0a;                /* matches banner-1.png and the logo lockup */
+  --color-surface: #161616;
+  --color-text: #ffffff;
+  --color-muted: #9a9a9a;
+  --color-line: #2c2c2c;
+  --color-accent: #c9a24b;            /* gold, from "metalería litúrgica" (coronas, cetros, aureolas) in the copy */
+  --color-accent-contrast: #0a0a0a;
+  --color-danger: #d63637;
+  --color-success: #2e7d32;
+  --color-product-bg: #ffffff;        /* product photography is shot on white; cards stay white on the black site */
+
+  /* type */
+  --font-display: "Montserrat", system-ui, sans-serif;   /* consistent with MUBB and MUBB Design */
+  --font-body: "Montserrat", system-ui, sans-serif;
+  --fs-xs: .75rem; --fs-sm: .875rem; --fs-md: 1rem; --fs-lg: 1.25rem;
+  --fs-xl: clamp(1.75rem, 3vw, 2.5rem); --fs-hero: clamp(2.5rem, 7vw, 5.5rem);
+  --lh-tight: 1.1; --lh-body: 1.6;
+  --tracking-caps: .12em;
+
+  /* space (8px scale) */
+  --s-1: .5rem; --s-2: 1rem; --s-3: 1.5rem; --s-4: 2rem; --s-6: 3rem; --s-8: 4rem; --s-12: 6rem; --s-16: 8rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --max-width: 1440px;
+
+  /* shape and motion */
+  --radius: 0;
+  --img-ratio-card: 3 / 4;
+  --img-ratio-hero: 16 / 9;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --dur-fast: 200ms; --dur: 500ms; --dur-slow: 900ms;
+}
+@media (prefers-reduced-motion: reduce) { :root { --dur-fast: 0ms; --dur: 0ms; --dur-slow: 0ms; } }

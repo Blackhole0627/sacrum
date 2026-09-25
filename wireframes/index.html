@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SACRUM Wireframes</title>
+<style>
+:root{--gold:#c9a24b;}
+*{box-sizing:border-box}body{margin:0;background:#2a2a2a;color:#ddd;font:12px/1.4 Montserrat,system-ui,sans-serif}
+header.doc{padding:22px 30px;background:#111;border-bottom:1px solid #333}header.doc h1{margin:0 0 4px;font-size:19px;color:#fff}header.doc p{margin:0;color:#999}
+nav.toc{position:sticky;top:0;z-index:5;background:#111;padding:10px 30px;display:flex;gap:16px;flex-wrap:wrap;border-bottom:1px solid #333}nav.toc a{color:#fff;text-decoration:none;font-weight:600}
+section.page{padding:26px 30px}section.page>h2{margin:0 0 4px;color:#fff;font-size:16px}section.page>.note{margin:0 0 14px;color:#aaa;max-width:900px}
+.row{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
+.dev{background:#000;border:1px solid #444}.dev .label{background:#555;color:#fff;padding:3px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.d{width:900px}.m{width:290px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;background:#000;color:#fff;letter-spacing:.06em;font-size:11px}
+.nav .lk{display:flex;gap:18px}.nav .on{color:var(--gold);font-weight:700}
+.logo{color:var(--gold);font-weight:700;letter-spacing:.1em}
+.ph{background:#3b3b3b;color:#999;display:flex;align-items:center;justify-content:center;text-align:center;text-transform:uppercase;letter-spacing:.06em;font-size:10px;border:1px dashed #666}
+.phw{background:#eee;color:#888;border:1px dashed #bbb}
+.hero{height:280px;color:#fff;text-align:center;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(#000,#1a1a1a)}
+.gold{color:var(--gold)}
+.band{padding:34px 30px}
+h3{margin:0 0 8px;color:#fff;font-weight:300;font-size:22px;letter-spacing:.05em;text-transform:uppercase}h4{margin:0 0 4px;color:#fff;font-weight:600;text-transform:uppercase;font-size:11px;letter-spacing:.08em}
+.grid{display:grid;gap:14px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.side{display:grid;grid-template-columns:190px 1fr;gap:20px}
+.card{background:#fff;padding:8px}.tall{aspect-ratio:3/4}.sq{aspect-ratio:1/1}
+.cap{text-align:center;margin-top:5px;text-transform:uppercase;font-size:10px;color:#111}
+.txt{height:7px;background:#444;margin:6px 0;border-radius:2px}.txt.m{width:80%}.txt.s{width:55%}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:8px 16px;text-transform:uppercase;letter-spacing:.06em;font-size:11px}
+.lnk{color:var(--gold);text-transform:uppercase;letter-spacing:.06em;font-size:11px}
+.cta{padding:50px 30px;text-align:center;background:#000;color:#fff}.cta h3{font-size:22px;text-align:center}
+.foot{padding:16px 22px;background:#000;color:#aaa;font-size:10px;border-top:1px solid #222;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.field{border:1px solid #666;padding:8px 10px;color:#888;margin-bottom:8px}
+.ann{background:#fff8c5;color:#333;border:1px solid #e0d27a;padding:8px 10px;margin-top:12px;max-width:900px}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.num{width:28px;height:28px;border:1px solid var(--gold);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;font-weight:700}
+.tag{background:var(--gold);color:#000;padding:1px 7px;font-size:10px;margin-right:6px}
+.pill{display:inline-block;border:1px solid #555;color:#ccc;padding:2px 8px;font-size:10px;margin:0 4px 4px 0}
+</style></head><body>
+<header class="doc"><h1>SACRUM — Wireframes (Step 1)</h1>
+<p>Built from the client's real material (logo, banner, product photos, catalog structure). Nosotros/Proceso/Servicios/Contacto use drafted placeholder copy — see draft-copy-pending-sections.md.</p></header>
+<nav class="toc"><a href="#home">Home</a><a href="#about">Nosotros</a><a href="#proceso">Proceso</a><a href="#servicios">Servicios</a><a href="#catalog">Productos</a><a href="#contact">Contacto</a><a href="#store">Store pages</a><a href="#blocks">Blocks</a><a href="#sitemap">Sitemap</a></nav>
+
+<section class="page" id="home"><h2>1. Home</h2><p class="note">Hero reuses the client's real banner-1.png concept (black, statue photography, gold wordmark) or the reel-v1.mp4 video.</p><div class="row">
+<div class="dev d"><div class="label">Desktop</div>
+<div class="nav"><span class="logo">SACRUM</span><span class="lk"><span class="on">Inicio</span><span>Nosotros</span><span>Productos</span><span>Proceso</span><span>Servicios</span><span>Contacto</span></span><span>ES|EN Cart(0)</span></div>
+<div class="ph hero">Hero: banner-1.png style / reel-v1.mp4<br><span class="gold" style="font-size:22px;margin-top:8px">CADA PIEZA, HECHA A MANO</span></div>
+<div class="band" style="text-align:center"><div class="txt m" style="margin:auto"></div><div class="txt s" style="margin:8px auto"></div></div>
+<div class="band"><h4 class="t">Categorías</h4><div class="grid g2"><div class="ph" style="height:160px">Religiosas</div><div class="ph" style="height:160px">Decorativas</div></div></div>
+<div class="band"><h4 class="t">Piezas destacadas</h4><div class="grid g4"><div class="card"><div class="phw tall">Photo</div><div class="cap">Virgen María</div></div><div class="card"><div class="phw tall">Photo</div><div class="cap">Cristo</div></div><div class="card"><div class="phw tall">Photo</div><div class="cap">San José</div></div><div class="card"><div class="phw tall">Photo</div><div class="cap">Ángel</div></div></div></div>
+<div class="band"><div class="side"><div class="ph h4">Taller image</div><div><h3 style="font-size:20px">Manos ecuatorianas, 30 años de oficio</h3><div class="txt"></div><div class="txt m"></div><span class="lnk">Conoce Sacrum ⟶</span></div></div></div>
+<div class="cta"><h3>Cada pieza comienza con una conversación</h3><span class="btn">Contáctanos</span></div>
+<div class="foot">Footer: navegación · redes · políticas · WhatsApp</div></div>
+<div class="dev m"><div class="label">Mobile</div><div class="nav"><span class="logo">SACRUM</span><span>☰</span></div><div class="ph hero" style="height:220px">Hero</div>
+<div class="band"><div class="grid g2"><div class="ph" style="height:110px">Religiosas</div><div class="ph" style="height:110px">Decorativas</div></div></div>
+<div class="band"><div class="grid g2"><div class="card"><div class="phw tall">Photo</div><div class="cap">Virgen</div></div><div class="card"><div class="phw tall">Photo</div><div class="cap">Cristo</div></div></div></div>
+<div class="cta" style="padding:26px 16px"><span class="btn">Contáctanos</span></div></div></div></section>
+
+<section class="page" id="about"><h2>2. Nosotros</h2><p class="note">Copy: draft-copy-pending-sections.md (🖊 placeholder, matches brand voice, pending client edit).</p>
+<div class="dev d"><div class="label">Desktop</div><div class="nav"><span class="logo">SACRUM</span><span class="lk"><span>Inicio</span><span class="on">Nosotros</span><span>Productos</span><span>Proceso</span><span>Servicios</span><span>Contacto</span></span></div>
+<div class="ph" style="height:220px">Cover: taller / artesano trabajando</div>
+<div class="band"><div class="side"><h3 style="font-size:22px">30 años de oficio</h3><div><div class="txt"></div><div class="txt m"></div><div class="txt"></div><div class="txt s"></div></div></div></div>
+<div class="band" style="text-align:center;background:#111"><div class="grid g4"><div><div class="gold" style="font-size:20px">TRADICIÓN</div><div class="txt s" style="margin:6px auto"></div></div><div><div class="gold" style="font-size:20px">PRECISIÓN</div><div class="txt s" style="margin:6px auto"></div></div><div><div class="gold" style="font-size:20px">ESPIRITUALIDAD</div><div class="txt s" style="margin:6px auto"></div></div><div><div class="gold" style="font-size:20px">ALCANCE GLOBAL</div><div class="txt s" style="margin:6px auto"></div></div></div></div>
+</div></section>
+
+<section class="page" id="proceso"><h2>3. Proceso</h2><p class="note">6-step artisan process, drafted; confirm real materials/steps with the client.</p>
+<div class="dev d"><div class="label">Desktop</div><div class="nav"><span class="logo">SACRUM</span><span class="lk"><span>Inicio</span><span>Nosotros</span><span>Productos</span><span class="on">Proceso</span><span>Servicios</span><span>Contacto</span></span></div>
+<div class="band"><h3 style="text-align:center">De la idea a la pieza terminada</h3>
+<div class="step"><div class="num">1</div><div><b style="color:#fff">Boceto y concepto</b><div class="txt m"></div></div></div>
+<div class="step"><div class="num">2</div><div><b style="color:#fff">Escultura del modelo original</b><div class="txt m"></div></div></div>
+<div class="step"><div class="num">3</div><div><b style="color:#fff">Moldeado</b><div class="txt m"></div></div></div>
+<div class="step"><div class="num">4</div><div><b style="color:#fff">Fundición</b><div class="txt m"></div></div></div>
+<div class="step"><div class="num">5</div><div><b style="color:#fff">Pintura a mano</b><div class="txt m"></div></div></div>
+<div class="step"><div class="num">6</div><div><b style="color:#fff">Control de calidad y envío</b><div class="txt m"></div></div></div>
+</div></div></section>
+
+<section class="page" id="servicios"><h2>4. Servicios</h2>
+<div class="dev d"><div class="label">Desktop</div><div class="nav"><span class="logo">SACRUM</span><span class="lk"><span>Inicio</span><span>Nosotros</span><span>Productos</span><span>Proceso</span><span class="on">Servicios</span><span>Contacto</span></span></div>
+<div class="band"><div class="grid g3">
+<div class="ph h3">Esculturas en stock</div><div class="ph h3">Piezas personalizadas</div><div class="ph h3">Proyectos institucionales</div>
+<div class="ph h3">Restauración</div><div class="ph h3">Envío internacional</div><div></div></div></div>
+<div class="cta"><h3>¿Qué buscas?</h3><span class="btn">Contáctanos</span></div></div></section>
+
+<section class="page" id="catalog"><h2>5. Productos (catalog / category / product)</h2><p class="note">Real taxonomy from the client's document. Cart, checkout, and result pages are shared with the MUBB Store system (section 6).</p>
+<div class="dev d"><div class="label">Desktop — Category</div><div class="nav"><span class="logo">SACRUM</span><span class="lk"><span>Inicio</span><span>Nosotros</span><span class="on">Productos</span><span>Proceso</span><span>Servicios</span><span>Contacto</span></span><span>Cart(0)</span></div>
+<div class="band"><div class="side"><div>
+<h4 class="t">Religiosas</h4><div style="line-height:2">Todas · Ángeles · Cristos · Crucifijos · Devocionales · Sagrada Familia · Santos · Vírgenes · Vía Crucis · Metalería litúrgica</div>
+<h4 class="t" style="margin-top:14px">Decorativas</h4><div style="line-height:2">Todas · Jardín/exterior · Interior · Figuras históricas · Monumentales</div>
+<h4 class="t" style="margin-top:14px">Filtros</h4><div class="pill">Esculturas grandes</div><div class="pill">En stock</div><div class="pill">Personalizable</div>
+</div>
+<div><div class="grid g3">
+<div class="card"><div class="phw tall">Photo</div><div class="cap">Virgen María</div></div>
+<div class="card"><div class="phw tall">Photo</div><div class="cap">Cristo Crucificado</div></div>
+<div class="card"><div class="phw tall">Photo</div><div class="cap">San Padre Pío</div></div>
+<div class="card"><div class="phw tall">Photo</div><div class="cap">Ángel de la Guarda</div></div>
+<div class="card"><div class="phw tall">Photo</div><div class="cap">Sagrada Familia</div></div>
+<div class="card"><div class="phw tall">Photo</div><div class="cap">Guadalupe</div></div>
+</div></div></div></div></div>
+<div class="dev d" style="margin-top:20px"><div class="label">Desktop — Product</div><div class="nav"><span class="logo">SACRUM</span><span>Cart(1)</span></div>
+<div class="band"><div class="side" style="grid-template-columns:1fr 1fr"><div><div class="phw" style="height:340px">Main photo</div><div class="grid g4" style="margin-top:8px"><div class="phw sq">1</div><div class="phw sq">2</div></div></div>
+<div><div style="color:#999">Religiosas › Vírgenes</div><h3 style="font-size:20px">Virgen María</h3><div class="gold" style="font-size:16px">$ —</div><div>● En stock — o bajo pedido</div>
+<div style="margin-top:10px"><h4 class="t">Tamaño</h4><span class="pill">30 cm</span><span class="pill">60 cm</span><span class="pill">1 m</span></div>
+<div><h4 class="t">Acabado</h4><span class="pill">Policromado</span><span class="pill">Oro</span></div>
+<div class="field" style="margin-top:10px">✎ Personaliza tu pieza: tamaño, acabado, dedicatoria</div>
+<span class="btn">Agregar al carrito</span></div></div></div></div></section>
+
+<section class="page" id="contact"><h2>6. Contacto</h2><p class="note">Form posts to our own route, emails SACRUM, feeds WhatsApp/CRM later without a rebuild.</p>
+<div class="dev d"><div class="label">Desktop</div><div class="nav"><span class="logo">SACRUM</span><span>Cart(0)</span></div>
+<div class="band"><div class="side"><div><h3 style="font-size:22px">Cada pieza comienza con una conversación</h3><div class="txt m"></div><br>WhatsApp · 🖊 email pendiente · 🖊 taller pendiente</div>
+<div><div class="field">Nombre completo</div><div class="field">Correo electrónico</div><div class="field">Teléfono</div><div class="field">País</div><div class="field">Tipo de consulta ▾ (Stock · Personalización · Institucional · Restauración · Otro)</div><div class="field" style="height:80px">Mensaje</div><span class="btn">Enviar</span></div></div></div></div></section>
+
+<section class="page" id="store"><h2>7. Store pages (cart, checkout, order status)</h2>
+<p class="note">Same structure as MUBB Store, restyled black/gold/white. Open <code>../../2-mubb-store/wireframes/index.html</code> for the full cart, checkout, and payment-result wireframes — SACRUM reuses them unchanged, just with these tokens.</p></section>
+
+<section class="page" id="blocks"><h2>8. CMS block library</h2>
+<div class="grid g3" style="max-width:1000px">
+<div class="dev"><div class="label">Hero</div><div class="pad" style="padding:14px"><div class="ph h2" style="height:80px">Image/video</div><span class="tag">fields</span>media, title, subtitle, button</div></div>
+<div class="dev"><div class="label">Text + image</div><div class="pad" style="padding:14px"><span class="tag">fields</span>image, text, side, button</div></div>
+<div class="dev"><div class="label">Category grid</div><div class="pad" style="padding:14px"><span class="tag">fields</span>2–4 categories</div></div>
+<div class="dev"><div class="label">Featured products</div><div class="pad" style="padding:14px"><span class="tag">fields</span>pick products / latest</div></div>
+<div class="dev"><div class="label">Process steps</div><div class="pad" style="padding:14px"><span class="tag">fields</span>step[] (number, title, text)</div></div>
+<div class="dev"><div class="label">Values</div><div class="pad" style="padding:14px"><span class="tag">fields</span>value[] (title, text)</div></div>
+<div class="dev"><div class="label">Quote</div><div class="pad" style="padding:14px"><span class="tag">fields</span>text, author</div></div>
+<div class="dev"><div class="label">CTA banner</div><div class="pad" style="padding:14px"><span class="tag">fields</span>text, link</div></div>
+<div class="dev"><div class="label">Form</div><div class="pad" style="padding:14px"><span class="tag">fields</span>type, success text</div></div>
+</div></section>
+
+<section class="page" id="sitemap"><h2>9. Sitemap (final for Step 1)</h2>
+<div class="dev" style="max-width:640px"><div class="pad" style="font-family:monospace;white-space:pre;color:#ccc">/                    Inicio
+/nosotros            Nosotros
+/proceso             Proceso
+/servicios           Servicios
+/productos           Catálogo
+/productos/[cat]     Categoría (religiosas | decorativas)
+/producto/[slug]     Producto
+/carrito             Carrito
+/checkout            Checkout
+/pedido/[id]         Estado del pedido
+/contacto            Contacto
+/politicas           Envíos, devoluciones, términos, privacidad</div></div>
+<div class="ann"><b>Resolved:</b> SACRUM sells handcrafted religious and decorative sculptures — see copy-and-content.md. Design tokens are decided (black / white product cards / gold accent) in <code>tokens.css</code>. Nosotros/Proceso/Servicios/Contacto use drafted placeholder copy pending the client's real text.</div></section>
+</body></html>
