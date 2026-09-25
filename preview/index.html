@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SACRUM — Vista previa</title>
+<style>
+:root{--gold:#c9a24b;--bg:#0a0a0a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#fff;font-family:Montserrat,system-ui,sans-serif}
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;background:rgba(10,10,10,.92);backdrop-filter:blur(6px);border-bottom:1px solid #1c1c1c}
+header img{height:38px}
+nav a{color:#eee;text-decoration:none;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-left:26px}
+nav a:hover{color:var(--gold)}
+.hero{position:relative;height:70vh;min-height:420px;background:#000}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:.75}
+.hero .txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+.hero h1{font-weight:300;font-size:clamp(1.8rem,4.5vw,3.2rem);letter-spacing:.08em;text-transform:uppercase;margin:0 0 14px}
+.hero .gold{color:var(--gold);font-size:12px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:16px}
+.hero p{max-width:560px;color:#ddd;font-size:14px;line-height:1.7}
+section{max-width:1200px;margin:0 auto;padding:70px 32px}
+h2{font-weight:300;font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:.06em;text-transform:uppercase;text-align:center;margin:0 0 40px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:#fff;text-align:center}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.card .cap{color:#111;padding:14px 10px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.about{text-align:center;max-width:760px;margin:0 auto 70px;padding:0 32px}
+.about p{color:#ccc;line-height:1.8;font-size:14px}
+.quote{text-align:center;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:300;font-style:italic;max-width:760px;margin:0 auto;color:#f1f1f1}
+.quote span{display:block;margin-top:14px;font-size:11px;font-style:normal;letter-spacing:.1em;color:var(--gold);text-transform:uppercase}
+.values{background:#111}
+.values .grid{grid-template-columns:repeat(4,1fr);text-align:center}
+.values h3{color:var(--gold);font-weight:400;font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+.values p{color:#aaa;font-size:12.5px;line-height:1.6;margin:0}
+.cta{text-align:center;background:#000}
+.cta a{display:inline-block;margin-top:22px;border:1px solid var(--gold);color:var(--gold);padding:12px 28px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+footer{border-top:1px solid #1c1c1c;padding:26px 32px;text-align:center;color:#666;font-size:11px}
+.note{max-width:1200px;margin:0 auto;padding:14px 32px;color:#777;font-size:12px;background:#050505;border-top:1px solid #1a1a1a}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.values .grid{grid-template-columns:repeat(2,1fr);gap:30px}}
+</style></head><body>
+
+<header>
+  <img src="img/logo.png" alt="SACRUM">
+  <nav><a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#valores">Valores</a><a href="#contacto">Contacto</a></nav>
+</header>
+
+<div class="hero">
+  <img src="img/hero.jpg" alt="SACRUM">
+  <div class="txt">
+    <div class="gold">Manos ecuatorianas · Más de 30 años de oficio</div>
+    <h1>Cada pieza, hecha a mano</h1>
+    <p>Esculturas religiosas y decorativas, esculpidas, pulidas y pintadas a mano por maestros artesanos ecuatorianos.</p>
+  </div>
+</div>
+
+<section id="productos">
+  <h2>Piezas destacadas</h2>
+  <div class="grid">
+    <div class="card"><img src="img/p1.jpg" alt="San Padre Pío"><div class="cap">San Padre Pío</div></div>
+    <div class="card"><img src="img/p2.jpg" alt="Virgen de Guadalupe"><div class="cap">Virgen de Guadalupe</div></div>
+    <div class="card"><img src="img/p3.jpg" alt="Crucifijo"><div class="cap">Crucifijo</div></div>
+    <div class="card"><img src="img/p4.jpg" alt="Sagrado Corazón"><div class="cap">Sagrado Corazón</div></div>
+    <div class="card"><img src="img/p5.jpg" alt="Virgen con el Niño"><div class="cap">Virgen con el Niño</div></div>
+    <div class="card"><img src="img/p6.jpg" alt="Virgen Reina"><div class="cap">Virgen Reina</div></div>
+  </div>
+</section>
+
+<section id="nosotros" class="about">
+  <h2>Nosotros</h2>
+  <p>En Sacrum, cada escultura nace de las manos de maestros artesanos ecuatorianos que han dedicado su vida al oficio de esculpir fe y belleza. Elaboramos esculturas religiosas y decorativas, donde cada obra pasa por manos expertas que la moldean, la pulen y la pintan al detalle, imprimiendo un toque único e irrepetible que ninguna máquina puede replicar.</p>
+  <p>Con más de 30 años de experiencia, esa vocación artesanal ha evolucionado hacia Sacrum: una marca que honra ese legado con una mirada moderna, exigente y global. Hoy, manos ecuatorianas llevan nuestras esculturas a hogares, templos y colecciones alrededor del mundo.</p>
+</section>
+
+<section>
+  <div class="quote">“Detrás de cada escultura Sacrum hay manos ecuatorianas, años de oficio y un compromiso con la excelencia que no se negocia.”<span>Desde Ecuador para el mundo</span></div>
+</section>
+
+<section class="values" id="valores">
+  <h2>Nuestros valores</h2>
+  <div class="grid">
+    <div><h3>Tradición</h3><p>Más de 30 años de oficio artesanal.</p></div>
+    <div><h3>Precisión</h3><p>Atención al detalle en cada rostro, pliegue y acabado.</p></div>
+    <div><h3>Espiritualidad</h3><p>Entendemos el valor emocional de cada pieza.</p></div>
+    <div><h3>Alcance global</h3><p>Exportamos a hogares, templos y colecciones en todo el mundo.</p></div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <h2 style="margin-bottom:6px">Cada pieza comienza con una conversación</h2>
+  <p style="color:#999;font-size:13px">Compra en stock, personalización, o un proyecto para tu comunidad.</p>
+  <a href="#">Contáctanos</a>
+</section>
+
+<footer>© Sacrum · Manos ecuatorianas, desde Ecuador para el mundo</footer>
+<p class="note">Vista previa de alta fidelidad con fotografía real de piezas Sacrum. El texto de Nosotros y Valores es el de la marca (confirmado); Proceso, Servicios y el catálogo completo (con los más de 240 productos reales enviados) se están integrando con el mismo estilo.</p>
+</body></html>
