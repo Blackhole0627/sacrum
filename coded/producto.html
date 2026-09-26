@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title id="pgTitle">Pieza — SACRUM</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px"><img src="img/logo.png" alt="SACRUM"></a>
+    <nav class="main"><a href="index.html">Inicio</a><a href="nosotros.html">Nosotros</a><a href="productos.html" class="on">Productos</a><a href="proceso.html">Proceso</a><a href="servicios.html">Servicios</a><a href="contacto.html">Contacto</a></nav>
+    <div class="hd-right"><a class="cart-link" href="carrito.html">🛒 <span class="cart-count">0</span></a></div>
+  </div>
+</header>
+
+<div id="pdp"></div>
+
+<footer>
+  <div class="flogo">SACRUM</div>
+  <p>Manos ecuatorianas, desde Ecuador para el mundo</p>
+  <div class="fbottom">© 2026 Sacrum. Todos los derechos reservados.</div>
+</footer>
+
+<script src="store.js"></script>
+<script>
+  const id = new URLSearchParams(location.search).get('id');
+  const p = getProduct(id) || PRODUCTS[0];
+  document.getElementById('pgTitle').textContent = p.name + ' — SACRUM';
+  let size = p.sizes[0], finish = p.finishes[0], qty = 1;
+
+  document.getElementById('pdp').innerHTML = `
+    <div class="pdp">
+      <div class="gallery"><img src="${p.img}" alt="${p.name}"></div>
+      <div>
+        <div class="cat">${p.cat}</div>
+        <h1>${p.name}</h1>
+        <div class="price">${fmt(p.price)}</div>
+        <div class="stock">● En stock — ${p.stock} disponible${p.stock === 1 ? '' : 's'}</div>
+        <p class="desc">${p.desc}</p>
+        <div class="optgrp"><span class="lbl">Tamaño</span><div id="sizeOpts">${p.sizes.map(s => `<span class="pill${s===size?' sel':''}" data-s="${s}">${s}</span>`).join('')}</div></div>
+        <div class="optgrp"><span class="lbl">Acabado</span><div id="finishOpts">${p.finishes.map(f => `<span class="pill${f===finish?' sel':''}" data-f="${f}">${f}</span>`).join('')}</div></div>
+        <div class="qtybox"><button id="qMinus">−</button><span id="qVal">1</span><button id="qPlus">+</button></div>
+        <button class="addbtn" id="addBtn">Agregar al carrito</button>
+        ${p.customizable ? '<div class="custom-note">✎ ¿Buscas otro tamaño, color o una dedicatoria? Escríbenos y la hacemos a medida — <a href="contacto.html" style="color:var(--gold)">personalizar pieza</a>.</div>' : ''}
+        <div class="ship">Envío a Quito, Guayaquil y Cuenca desde $ 15 · Piezas grandes y monumentales cotizan flete aparte</div>
+      </div>
+    </div>
+  `;
+
+  document.querySelectorAll('#sizeOpts .pill').forEach(el => el.onclick = () => { size = el.dataset.s; document.querySelectorAll('#sizeOpts .pill').forEach(x=>x.classList.remove('sel')); el.classList.add('sel'); });
+  document.querySelectorAll('#finishOpts .pill').forEach(el => el.onclick = () => { finish = el.dataset.f; document.querySelectorAll('#finishOpts .pill').forEach(x=>x.classList.remove('sel')); el.classList.add('sel'); });
+  document.getElementById('qMinus').onclick = () => { qty = Math.max(1, qty - 1); document.getElementById('qVal').textContent = qty; };
+  document.getElementById('qPlus').onclick = () => { qty = Math.min(p.stock, qty + 1); document.getElementById('qVal').textContent = qty; };
+  document.getElementById('addBtn').onclick = function(){ addToCart(p.id, qty, size, finish); this.textContent = 'Agregado ✓'; setTimeout(()=> this.textContent = 'Agregar al carrito', 1400); };
+</script>
+</body></html>

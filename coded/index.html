@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SACRUM — Esculturas religiosas y decorativas</title>
+<meta name="description" content="SACRUM: esculturas religiosas y decorativas hechas a mano por artesanos ecuatorianos. Más de 30 años de oficio.">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px"><img src="img/logo.png" alt="SACRUM"></a>
+    <nav class="main">
+      <a href="index.html" class="on">Inicio</a><a href="nosotros.html">Nosotros</a><a href="productos.html">Productos</a><a href="proceso.html">Proceso</a><a href="servicios.html">Servicios</a><a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="hd-right"><a class="cart-link" href="carrito.html">🛒 <span class="cart-count">0</span></a></div>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <img src="img/hero.jpg" alt="SACRUM">
+  <div class="txt">
+    <div class="gold">Manos ecuatorianas · Más de 30 años de oficio</div>
+    <h1>Cada pieza, hecha a mano</h1>
+    <p>Esculturas religiosas y decorativas, esculpidas, pulidas y pintadas a mano por maestros artesanos ecuatorianos.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Catálogo</span>
+  <h2>Piezas destacadas</h2>
+  <div class="pgrid" id="featured"></div>
+  <p style="text-align:center;margin-top:40px"><a href="productos.html" style="color:var(--gold);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;font-size:11px;border-bottom:1px solid var(--gold);padding-bottom:4px">Ver todo el catálogo →</a></p>
+</section>
+
+<section class="about">
+  <span class="eyebrow">Nosotros</span>
+  <h2 style="margin-bottom:24px">30 años de oficio</h2>
+  <p>En Sacrum, cada escultura nace de las manos de maestros artesanos ecuatorianos que han dedicado su vida al oficio de esculpir fe y belleza. Elaboramos esculturas religiosas y decorativas, donde cada obra pasa por manos expertas que la moldean, la pulen y la pintan al detalle.</p>
+  <p>Con más de 30 años de experiencia, esa vocación artesanal ha evolucionado hacia Sacrum: una marca que honra ese legado con una mirada moderna, exigente y global.</p>
+  <a href="nosotros.html" style="display:inline-block;margin-top:10px;color:var(--gold);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;font-size:11px;border-bottom:1px solid var(--gold);padding-bottom:4px">Conoce Sacrum →</a>
+</section>
+
+<section style="background:#111">
+  <h2 style="margin-bottom:10px">"Detrás de cada escultura Sacrum hay manos ecuatorianas, años de oficio y un compromiso con la excelencia que no se negocia."</h2>
+  <p style="text-align:center;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-size:11px">Desde Ecuador para el mundo</p>
+</section>
+
+<section class="cta">
+  <h2 style="margin-bottom:0">Cada pieza comienza con una conversación</h2>
+  <p style="color:#999;font-size:13px;margin-top:10px">Compra en stock, personalización, o un proyecto para tu comunidad.</p>
+  <a class="btn" href="contacto.html">Contáctanos</a>
+</section>
+
+<footer>
+  <div class="flogo">SACRUM</div>
+  <p>Manos ecuatorianas, desde Ecuador para el mundo</p>
+  <div class="fbottom">© 2026 Sacrum. Todos los derechos reservados.</div>
+</footer>
+
+<script src="store.js"></script>
+<script>
+  const featured = document.getElementById('featured');
+  featured.innerHTML = PRODUCTS.slice(0,6).map(p => `
+    <div class="pcard">
+      <a class="imgwrap" href="producto.html?id=${p.id}"><img src="${p.img}" alt="${p.name}"></a>
+      <div class="body">
+        <div class="cat">${p.cat}</div>
+        <div class="name">${p.name}</div>
+        <div class="price">${fmt(p.price)}</div>
+        <button onclick="location.href='producto.html?id=${p.id}'">Ver pieza</button>
+      </div>
+    </div>
+  `).join('');
+</script>
+</body></html>

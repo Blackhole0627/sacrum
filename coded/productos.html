@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Productos — SACRUM</title>
+<meta name="description" content="Catálogo de esculturas religiosas y decorativas SACRUM: vírgenes, cristos, santos, ángeles.">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px"><img src="img/logo.png" alt="SACRUM"></a>
+    <nav class="main"><a href="index.html">Inicio</a><a href="nosotros.html">Nosotros</a><a href="productos.html" class="on">Productos</a><a href="proceso.html">Proceso</a><a href="servicios.html">Servicios</a><a href="contacto.html">Contacto</a></nav>
+    <div class="hd-right"><a class="cart-link" href="carrito.html">🛒 <span class="cart-count">0</span></a></div>
+  </div>
+</header>
+
+<section class="hero" style="height:32vh;min-height:200px;padding:0">
+  <img src="img/p2.jpg" alt="Productos SACRUM" style="object-position:center 15%">
+  <div class="txt"><h1>Catálogo</h1></div>
+</section>
+
+<section>
+  <div class="filters" id="filters">
+    <button class="on" data-f="todos">Todas</button>
+    <button data-f="Vírgenes">Vírgenes</button>
+    <button data-f="Cristos">Cristos</button>
+    <button data-f="Santos">Santos</button>
+    <button data-f="Ángeles">Ángeles</button>
+  </div>
+  <div class="pgrid" id="grid"></div>
+</section>
+
+<p class="note-box">Categoría "Decorativas" (jardín, interior, figuras históricas, monumentales): próximamente — pendiente de fotografía real de esas piezas. Vista previa funcional: precios y stock son ilustrativos hasta confirmar el catálogo real de más de 240 piezas que ya enviaron.</p>
+
+<footer>
+  <div class="flogo">SACRUM</div>
+  <p>Manos ecuatorianas, desde Ecuador para el mundo</p>
+  <div class="fbottom">© 2026 Sacrum. Todos los derechos reservados.</div>
+</footer>
+
+<script src="store.js"></script>
+<script>
+  const grid = document.getElementById('grid');
+  function draw(cat){
+    const items = cat === 'todos' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+    grid.innerHTML = items.map(p => `
+      <div class="pcard">
+        <a class="imgwrap" href="producto.html?id=${p.id}"><img src="${p.img}" alt="${p.name}"></a>
+        <div class="body">
+          <div class="cat">${p.cat}</div>
+          <div class="name">${p.name}</div>
+          <div class="price">${fmt(p.price)}</div>
+          ${p.customizable ? '<span class="badge">Personalizable</span>' : ''}
+          <button onclick="location.href='producto.html?id=${p.id}'">Ver pieza</button>
+        </div>
+      </div>
+    `).join('');
+  }
+  document.querySelectorAll('#filters button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('#filters button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on'); draw(b.dataset.f);
+  });
+  draw('todos');
+</script>
+</body></html>

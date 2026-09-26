@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — SACRUM</title>
+<link rel="stylesheet" href="styles.css">
+<style>.copybox{width:100%;background:#141414;border:1px solid var(--line);color:#ddd;padding:14px;font-family:monospace;font-size:11.5px;white-space:pre-wrap;min-height:160px}</style>
+</head><body>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px"><img src="img/logo.png" alt="SACRUM"></a>
+    <nav class="main"><a href="productos.html">Productos</a></nav>
+    <div class="hd-right">Checkout seguro</div>
+  </div>
+</header>
+
+<div class="co-wrap">
+  <form id="coForm">
+    <h2>1. Contacto y entrega</h2>
+    <label>Nombre completo</label><input type="text" name="nombre" required>
+    <div class="row2">
+      <div><label>Correo electrónico</label><input type="email" name="email" required></div>
+      <div><label>Teléfono</label><input type="text" name="telefono" required></div>
+    </div>
+    <label>Método de entrega</label>
+    <select name="entrega" id="entrega">
+      <option value="Quito|15">Envío a domicilio — Quito ($15)</option>
+      <option value="Guayaquil|18">Envío a domicilio — Guayaquil ($18)</option>
+      <option value="Cuenca|18">Envío a domicilio — Cuenca ($18)</option>
+      <option value="pickup|0">Retiro en taller (gratis)</option>
+    </select>
+    <label>Dirección (si aplica)</label><textarea name="direccion" rows="2"></textarea>
+
+    <h2>2. Facturación</h2>
+    <div class="row2">
+      <div><label>Tipo de documento</label><select name="doctipo"><option>Cédula</option><option>RUC</option></select></div>
+      <div><label>Número de documento</label><input type="text" name="docnum" required></div>
+    </div>
+
+    <button class="btn-submit" type="submit">Generar resumen del pedido</button>
+    <p style="font-size:11px;color:#888;margin-top:10px">El correo/WhatsApp de ventas de SACRUM aún está pendiente de confirmar con el cliente, así que este botón genera el resumen del pedido listo para copiar y enviar. En cuanto tengamos el contacto real, se conecta directo (igual que en la tienda MUBB).</p>
+    <div id="result" style="display:none;margin-top:16px">
+      <label>Resumen (copia y envía)</label>
+      <textarea class="copybox" id="summaryText" readonly></textarea>
+      <button type="button" class="btn-submit" id="copyBtn" style="margin-top:10px">Copiar resumen</button>
+    </div>
+  </form>
+
+  <div class="co-summary" id="summary"></div>
+</div>
+
+<footer>
+  <div class="flogo">SACRUM</div>
+  <p>Manos ecuatorianas, desde Ecuador para el mundo</p>
+  <div class="fbottom">© 2026 Sacrum. Todos los derechos reservados.</div>
+</footer>
+
+<script src="store.js"></script>
+<script>
+  const lines = cartLines();
+  if (!lines.length) location.href = 'carrito.html';
+
+  function shipCost(){ return parseInt(document.getElementById('entrega').value.split('|')[1], 10); }
+  function renderSummary(){
+    const subtotal = cartTotal(), ship = shipCost(), total = subtotal + ship;
+    document.getElementById('summary').innerHTML = `
+      <h2 style="margin-top:0">Resumen del pedido</h2>
+      ${lines.map(l => `<div class="line"><span>${l.product.name} (${l.size}, ${l.finish}) × ${l.qty}</span><span>${fmt(l.product.price * l.qty)}</span></div>`).join('')}
+      <div class="line" style="margin-top:10px"><span>Subtotal</span><span>${fmt(subtotal)}</span></div>
+      <div class="line"><span>Envío</span><span>${ship === 0 ? 'Gratis' : fmt(ship)}</span></div>
+      <div class="line total"><span>Total</span><span>${fmt(total)}</span></div>`;
+  }
+  document.getElementById('entrega').addEventListener('change', renderSummary);
+  renderSummary();
+
+  document.getElementById('coForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const [zona] = f.entrega.value.split('|');
+    const items = lines.map(l => `- ${l.product.name} (${l.size}, ${l.finish}) x${l.qty}: ${fmt(l.product.price * l.qty)}`).join('\n');
+    const total = cartTotal() + shipCost();
+    const text = `Pedido SACRUM
+${items}
+Envío: ${zona === 'pickup' ? 'Retiro en taller' : 'Domicilio - ' + zona}
+Total: ${fmt(total)}
+
+Nombre: ${f.nombre.value}
+Correo: ${f.email.value}
+Teléfono: ${f.telefono.value}
+Documento: ${f.doctipo.value} ${f.docnum.value}
+Dirección: ${f.direccion.value || '-'}`;
+    document.getElementById('summaryText').value = text;
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({behavior:'smooth'});
+  });
+  document.getElementById('copyBtn').onclick = () => {
+    navigator.clipboard.writeText(document.getElementById('summaryText').value);
+    localStorage.removeItem('sacrum_cart');
+    document.getElementById('copyBtn').textContent = 'Copiado ✓';
+  };
+</script>
+</body></html>
